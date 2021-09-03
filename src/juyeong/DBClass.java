@@ -3,6 +3,7 @@ package juyeong;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class DBClass {
 		private String url = "jdbc:oracle:thin:@210.221.253.215:1521:xe";
@@ -34,6 +35,27 @@ public class DBClass {
 				e.printStackTrace();
 			}
 			return result;
+		}
+		
+		public StudentDTO searchST(String id) {
+			String sql = "select * from newst1 where id = '"+id+"'";
+			StudentDTO dto = null;
+			try {
+				Connection con = DriverManager.getConnection(url,this.id,pwd);
+				PreparedStatement ps = con.prepareStatement(sql);
+				ResultSet rs = ps.executeQuery();
+				
+				if(rs.next()) {
+					dto = new StudentDTO();
+					dto.setId(rs.getString("id"));
+					dto.setName(rs.getString("name"));
+					dto.setAge(rs.getInt("age"));
+					dto.setMajor(rs.getString("major"));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return dto;
 		}
 		
 }

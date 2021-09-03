@@ -10,7 +10,7 @@ public class Jy {
 		
 		DBClass db = new DBClass();
 		while(true) {
-			System.out.println("회원 관리 프로그램 입니다.");
+			System.out.println("\n----회원 관리 프로그램 입니다.----");
 			System.out.println("1.등록 2.검색 3.전체보기 \n4.수정 5.삭제 6.나가기");
 			System.out.print(">>>");
 			num=input.nextInt();
@@ -33,7 +33,20 @@ public class Jy {
 				
 				
 				break;
-			case 2: break;
+			case 2: 
+				System.out.println("검색할 id 입력: ");
+				id = input.next();
+				StudentDTO dto = db.searchST(id);
+				if(dto != null) {
+					System.out.println("-----회원 정보-----");
+					System.out.println("아이디 : "+dto.getId());
+					System.out.println("이름 : "+dto.getName());
+					System.out.println("나이 : "+dto.getAge());
+					System.out.println("전공 : "+dto.getMajor());
+				}else {
+					System.out.println("해당 아이디는 존재하지 않습니다.");
+				}
+				break;
 			case 3: break;
 			case 4: break;
 			case 5: break;
