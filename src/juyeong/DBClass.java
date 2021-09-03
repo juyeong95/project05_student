@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+
 
 public class DBClass {
 		private String url = "jdbc:oracle:thin:@210.221.253.215:1521:xe";
@@ -57,5 +59,44 @@ public class DBClass {
 			}
 			return dto;
 		}
-		
+		public ArrayList<StudentDTO> getList() {
+			ArrayList<StudentDTO> list = new ArrayList<StudentDTO>();
+			try {
+				String sql = "select * from newst1";
+				Connection con = DriverManager.getConnection(url,id,pwd);
+				PreparedStatement ps = con.prepareStatement(sql);
+				ResultSet rs = ps.executeQuery();
+				while(rs.next()){
+					StudentDTO dto = new StudentDTO();
+					dto.setId(rs.getString("id"));
+					dto.setName(rs.getString("name"));
+					dto.setAge(rs.getInt("age"));
+					dto.setMajor(rs.getString("major"));
+					
+					list.add(dto);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return list;
+		}
+		public int update(String userId, String userName, int userAge, String userMajor) {
+			int result=0;
+			String sql = "update newst1 set name =?, age=?, major=? where id =?";
+			try {
+				Connection con = DriverManager.getConnection(url,id,pwd);
+				PreparedStatement ps = con.prepareStatement(sql);
+				
+				ps.setString(1,userName);
+				ps.setInt(2, userAge);
+				ps.setString(3, userMajor);
+				ps.setString(4, userId);
+				
+				result = ps.executeUpdate();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return result;
+		}
 }

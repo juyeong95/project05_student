@@ -1,12 +1,17 @@
 package juyeong;
 
+
+import java.util.ArrayList;
 import java.util.Scanner;
+
+
 
 public class Jy {
 	public void display() {
 		Scanner input = new Scanner(System.in);
 		int num, age, result=0;
 		String id,name,major;
+		ArrayList<StudentDTO> list = null;
 		
 		DBClass db = new DBClass();
 		while(true) {
@@ -47,8 +52,34 @@ public class Jy {
 					System.out.println("해당 아이디는 존재하지 않습니다.");
 				}
 				break;
-			case 3: break;
-			case 4: break;
+			case 3:
+				list = db.getList();
+				for(int i =0; i<list.size(); i++) {
+					System.out.println("아이디 : "+list.get(i).getId() );
+					System.out.println("이름  : "+list.get(i).getName());
+					System.out.println("나이  : "+list.get(i).getAge());
+					System.out.println("전공  : "+list.get(i).getMajor());
+					System.out.println("--------------------------------");
+				}
+				break;
+			case 4:
+				System.out.println("아이디 입력: ");
+				id = input.next();
+				System.out.println("수정할 이름 입력: ");
+				name = input.next();
+				System.out.println("수정할 나이 입력: ");
+				age = input.nextInt();
+				System.out.println("수정할 전공 입력: ");
+				major = input.next();
+				result = db.update(id, name, age, major);
+				if(result == 1) {
+					System.out.println("수정이 완료되었습니다.");
+				}else {
+					System.out.println("해당 아이디는 존재하지 않습니다.");
+				}
+				
+				
+				break;
 			case 5: break;
 			case 6:
 				System.out.println("이용해 주셔서 감사합니다\n");
