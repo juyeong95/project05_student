@@ -80,7 +80,16 @@ public class Jy {
 				
 				
 				break;
-			case 5: break;
+			case 5:
+				System.out.println("삭제할 아이디 입력: ");
+				id=input.next();
+				result=db.delete(id);
+				if(result==1) {
+					System.out.println("삭제가 완료되었습니다.");
+				}else {
+					System.out.println("해당 아이디는 존재하지 않습니다.");
+				}
+				break;
 			case 6:
 				System.out.println("이용해 주셔서 감사합니다\n");
 				return;

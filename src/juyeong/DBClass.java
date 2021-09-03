@@ -99,4 +99,17 @@ public class DBClass {
 			}
 			return result;
 		}
+		public int delete(String userId) {
+			int result = 0;
+			String sql = "delete from newst1 where id='"+userId+"'";
+			try {
+				Connection con = DriverManager.getConnection(url,id,pwd);
+				PreparedStatement ps = con.prepareStatement(sql);
+				
+				result = ps.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return result;
+		}
 }
