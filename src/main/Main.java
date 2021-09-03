@@ -2,10 +2,13 @@ package main;
 
 import java.util.Scanner;
 
+import jihee.Ji_member;
+
 
 public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
+		Ji_member ji = new Ji_member();
 		int num;
 		while(true) {
 			System.out.println("1.이주영님 2.성기룡님 3.설지희님 \n"
@@ -14,7 +17,8 @@ public class Main {
 			switch(num) {
 			case 1:break;
 			case 2:break;
-			case 3:break;
+			case 3:ji.jihee();
+				break;
 			case 4:break;
 			case 5:break;
 			case 6:break;
