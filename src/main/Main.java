@@ -2,10 +2,14 @@ package main;
 
 import java.util.Scanner;
 
+import skh.DBClass;
+import skh.Member;
+
 
 public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
+		Member mb = new Member();
 		int num;
 		while(true) {
 			System.out.println("1.이주영님 2.성기룡님 3.설지희님 \n"
@@ -15,7 +19,9 @@ public class Main {
 			case 1:break;
 			case 2:break;
 			case 3:break;
-			case 4:break;
+			case 4:
+				mb.Display();
+				break;
 			case 5:break;
 			case 6:break;
 			case 7: System.out.println("프로그램을 종료합니다.");
