@@ -1,14 +1,10 @@
 package juyeong;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-
-
-
 
 public class DBClass {
 		private String url = "jdbc:oracle:thin:@210.221.253.215:1521:xe";

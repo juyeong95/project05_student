@@ -1,10 +1,7 @@
 package juyeong;
 
-
 import java.util.ArrayList;
 import java.util.Scanner;
-
-
 
 public class Jy {
 	public void display() {
@@ -35,8 +32,6 @@ public class Jy {
 				}else {
 					System.out.println("이미 가입된 id 입니다.");
 				}
-				
-				
 				break;
 			case 2: 
 				System.out.println("검색할 id 입력: ");
@@ -77,8 +72,6 @@ public class Jy {
 				}else {
 					System.out.println("해당 아이디는 존재하지 않습니다.");
 				}
-				
-				
 				break;
 			case 5:
 				System.out.println("삭제할 아이디 입력: ");
