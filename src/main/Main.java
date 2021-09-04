@@ -3,19 +3,20 @@ package main;
 import java.util.Scanner;
 
 import seoon.seoon_function;
-
+import juyeong.Jy;
 
 public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		seoon_function sf = new seoon_function();
+		Jy jy = new Jy();
 		int num;
 		while(true) {
 			System.out.println("1.이주영님 2.성기룡님 3.설지희님 \n"
 					+ "4.서광훈님 5.송영관님 6.이진원님 7.종료");
 			num=input.nextInt();
 			switch(num) {
-			case 1:break;
+			case 1:	jy.display();	break;
 			case 2:	sf.seoon_function();	break;
 			case 3:break;
 			case 4:break;
