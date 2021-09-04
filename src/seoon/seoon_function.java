@@ -14,7 +14,7 @@ public class seoon_function {
 		
 		
 		while(true) {
-			System.out.println("1. 모든데이터보기\n2. 찾기\n3. 저장\n4. 삭제\n5. 수정");
+			System.out.println("1. 모든데이터보기\n2. 찾기\n3. 저장\n4. 삭제\n5. 수정\n6. 나가기");
 			System.out.print(">>>>>>>>");
 			int num = input.nextInt();
 			switch(num) {
@@ -108,6 +108,8 @@ public class seoon_function {
 					}
 				}
 				break;
+				
+			case 6: return;
 			}
 		}
 	}
