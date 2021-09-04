@@ -41,12 +41,12 @@ public class Ji_Member {
 			id = sc.next();
 			System.out.print("이름 입력: ");
 			name = sc.next();
-			System.out.print("전공 입력: ");
-			major = sc.next();
 			System.out.print("나이 입력: ");
 			age = sc.nextInt();
+			System.out.print("전공 입력: ");
+			major = sc.next();
 			
-			db.MemberAdd(id, name, major, age);
+			db.MemberAdd(id, name, age, major);
 			
 			break;
 		case 3: 

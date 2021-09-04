@@ -48,15 +48,15 @@ public class Ji_DBClass {
 	}
 	
 	
-	public void MemberAdd(String userId, String userName, String userMajor, int userAge) {  //회원의 목록을 추가하는 기능 담당
+	public void MemberAdd(String userId, String userName,int userAge ,String userMajor) {  //회원의 목록을 추가하는 기능 담당
 		String sql = "insert into newst1 values(? , ? , ? , ?)";
 		try {
 			Connection con = DriverManager.getConnection(url,id,pwd);
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
 			ps.setString(2, userName);
-			ps.setString(3, userMajor);
-			ps.setInt(4, userAge);
+			ps.setString(4, userMajor);
+			ps.setInt(3, userAge);
 			
 			ResultSet rs = ps.executeQuery();
 			

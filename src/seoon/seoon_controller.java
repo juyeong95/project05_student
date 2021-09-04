@@ -71,8 +71,8 @@ public class seoon_controller {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, userId);
 			ps.setString(2, userName);
-			ps.setString(3, userMajor);
-			ps.setInt(4, userAge);
+			ps.setInt(3, userAge);
+			ps.setString(4, userMajor);
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
