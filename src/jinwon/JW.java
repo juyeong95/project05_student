@@ -1,7 +1,5 @@
 package jinwon;
 
-package Jinwon;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 

@@ -2,11 +2,8 @@ package main;
 
 import java.util.Scanner;
 
-<<<<<<< HEAD
 import skh.DBClass;
 import skh.Member;
-
-=======
 import seoon.seoon_function;
 import juyeong.Jy;
 
