@@ -1,4 +1,4 @@
-package Jinwon;
+package jinwon;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -68,7 +68,7 @@ public class DBClass {
 		return dto;
 	}
 	
-	public int saveData(String userId, String userName,String userMajor, int userAge) {
+	public int saveData(String userId, String userName,int userAge, String userMajor) {
 		
 		String sql = "insert into newst1 values(? , ? , ?)";
 		int result = 0;
@@ -89,7 +89,7 @@ public class DBClass {
 		}
 		return result;
 	}
-	public int updateData(StudentDTO userId, String name, String major, int age) {
+	public int updateData(String userId, String name, int age, String major) {
 		int result = 0;
 		//update newst set name='길이다',age=30 where id='111';
 		String sql = "update newst set name= ? ,age=? where id = ? ";

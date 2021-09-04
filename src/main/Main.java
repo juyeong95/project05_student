@@ -1,7 +1,6 @@
 package main;
 
 import java.util.Scanner;
-
 import skh.DBClass;
 import skh.Member;
 import seoon.seoon_function;
