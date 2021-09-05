@@ -1,6 +1,7 @@
 package jihee;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Ji_Member {
@@ -46,8 +47,13 @@ public class Ji_Member {
 			System.out.print("전공 입력: ");
 			major = sc.next();
 			
-			db.MemberAdd(id, name, age, major);
+			int result1 = db.MemberAdd(id, name, age, major);
 			
+			if(result1 == 1) {
+				System.out.println("저장 완료!!");
+			}else {
+				System.out.println("저장 실패!!");
+			}
 			break;
 		case 3: 
 			System.out.println("***** 검색 ******");
@@ -58,17 +64,13 @@ public class Ji_Member {
 			System.out.println("name : " + dt.getName());
 			System.out.println("major : " + dt.getMajor());
 			System.out.println("age : " + dt.getAge());
-			
-			
-			
-			
 			break;
 		case 4:
 			System.out.println("***** 삭제 ******");
 			System.out.print("아이디 입력 : ");
 			id = sc.next();
-			result = db.Delete(id);
-			if(result == 1) {
+			result1 = db.Delete(id);
+			if(result1 == 1) {
 				System.out.println("삭제완료!!");
 			}else {
 				System.out.println("해당 아이디는 존재하지 않습니다.");
@@ -84,9 +86,9 @@ public class Ji_Member {
 			age = sc.nextInt();
 			System.out.print("전공입력: ");
 			major = sc.next();
-			result = db.Rename(name, age, major, id);
+			result1 = db.Rename(name, age, major, id);
 			
-			if(result == 1) {
+			if(result1 == 1) {
 				System.out.println("수정 완료!!");
 			} else {
 				System.out.println("수정에 실패하였습니다.");

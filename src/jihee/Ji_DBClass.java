@@ -48,8 +48,9 @@ public class Ji_DBClass {
 	}
 	
 	
-	public void MemberAdd(String userId, String userName,int userAge ,String userMajor) {  //회원의 목록을 추가하는 기능 담당
+	public int MemberAdd(String userId, String userName,int userAge ,String userMajor) {  //회원의 목록을 추가하는 기능 담당
 		String sql = "insert into newst1 values(? , ? , ? , ?)";
+		int result = 0;
 		try {
 			Connection con = DriverManager.getConnection(url,id,pwd);
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -58,11 +59,12 @@ public class Ji_DBClass {
 			ps.setString(4, userMajor);
 			ps.setInt(3, userAge);
 			
-			ResultSet rs = ps.executeQuery();
+			result = ps.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return result;
 	}
 	
 	public Ji_StudentDTO searchST(String userId) {  //회원의 목록을 검색하는 기능 담당
